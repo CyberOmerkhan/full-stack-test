@@ -1,4 +1,7 @@
+"use client"
+
 import Link from 'next/link'
+import styles from './navbar.module.css'
 
 type LinkType = {
     id: number,
@@ -41,11 +44,15 @@ const links : LinkType[] = [
 
 export default function Navbar() {
     return (
-        <>
-            {links.map(link => 
-                <Link href = {link.url} key = {link.id}>
-                    {link.title}
-                </Link>)}
-        </>
+        <div className={styles.container}>
+            <Link href = "/" className={styles.logo}>Llama</Link>
+            <div className={styles.links}>
+                {links.map(link => 
+                    <Link href = {link.url} key = {link.id}>
+                        {link.title}
+                    </Link>)}
+                <button className = {styles.logout} onClick = {() => {console.log('logged out')}}>Logout</button>
+            </div>
+        </div>
     )
 }
