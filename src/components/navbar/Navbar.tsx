@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import styles from './navbar.module.css'
+import DarkModeToggle from '@/components/DarkModeToggle/DarkModeToggle'
 
 type LinkType = {
     id: number,
@@ -47,6 +48,7 @@ export default function Navbar() {
         <div className={styles.container}>
             <Link href = "/" className={styles.logo}>Llama</Link>
             <div className={styles.links}>
+                <DarkModeToggle /> 
                 {links.map(link => 
                     <Link href = {link.url} key = {link.id}>
                         {link.title}
